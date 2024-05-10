@@ -1,0 +1,44 @@
+{
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-bikey-prod-f846e-authRole",
+      "UnauthRoleArn": "arn:aws:iam::058264301242:role/amplify-bikey-prod-f846e-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::058264301242:role/amplify-bikey-prod-f846e-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-bikey-prod-f846e-deployment",
+      "UnauthRoleName": "amplify-bikey-prod-f846e-unauthRole",
+      "StackName": "amplify-bikey-prod-f846e",
+      "StackId": "arn:aws:cloudformation:eu-central-1:058264301242:stack/amplify-bikey-prod-f846e/d36b7da0-08b3-11ef-8e53-06761ed13b6f",
+      "AmplifyAppId": "d1qob3jq5x43v7"
+    },
+    "categories": {
+      "auth": {
+        "bikey82d413fe": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "processPayment": {
+          "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
+          "s3Key": "amplify-builds/processPayment-354659357a4a7a655335-build.zip"
+        },
+        "createOrder": {
+          "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
+          "s3Key": "amplify-builds/createOrder-346f357951586733732b-build.zip"
+        },
+        "bikey82d413fePostConfirmation": {
+          "GROUP": ""
+        },
+        "AdminQueriesdc0bab4b": {
+          "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
+          "s3Key": "amplify-builds/AdminQueriesdc0bab4b-4e375651464b68486247-build.zip"
+        }
+      },
+      "storage": {
+        "Images": {}
+      },
+      "api": {
+        "bikey": {}
+      }
+    }
+  }
+}
