@@ -115,7 +115,6 @@ nav ul {
   margin: auto;
 }
 
-/* Featured Books and Books Section */
 
 .featured-head {
   background: #343c44;
@@ -126,7 +125,7 @@ nav ul {
   align-items: center;
 }
 
-.books {
+.bikes {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -135,7 +134,7 @@ nav ul {
   margin: auto;
 }
 
-.book {
+.bike {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -152,16 +151,16 @@ nav ul {
   justify-content: space-evenly;
 }
 
-.featured-book {
+.featured-bike {
   margin: 1rem 0;
 }
 
-.book-image {
+.bike-image {
   flex: 3 1 100rem;
   padding: 2rem 0rem;
 }
 
-.book-link {
+.bike-link {
   flex: 1 1 100rem;
   background: #55606c;
   font-size: 1.7rem;
@@ -169,18 +168,18 @@ nav ul {
   height: 100%;
 }
 
-.book-link:hover {
+.bike-link:hover {
   background: #343c43;
 }
 
-.book img {
+.bike img {
   min-height: 10vh;
   height: 21vh;
 }
 
-/* Book Details Section */
+/* Bike Details Section */
 
-.book-details {
+.bike-details {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -350,7 +349,7 @@ nav ul {
     padding: 1rem;
   }
 
-  .book-details {
+  .bike-details {
     margin-top: 4rem;
   }
 }

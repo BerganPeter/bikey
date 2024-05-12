@@ -11,7 +11,7 @@ const Bikes = () => {
 
     return (
         <section className="bikes"> 
-            {bikes.map(({ image: image, id, name }) => ( 
+            {bikes.map(({ image, id, name }) => ( 
                 <article key={id} className="bike"> 
                     <div className="bike-image"> 
                         <img src={image} alt={name} /> 

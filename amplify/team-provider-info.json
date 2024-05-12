@@ -19,18 +19,14 @@
       "function": {
         "processPayment": {
           "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
-          "s3Key": "amplify-builds/processPayment-354659357a4a7a655335-build.zip"
+          "s3Key": "amplify-builds/processPayment-6e534874636a5443337a-build.zip"
         },
         "createOrder": {
           "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
-          "s3Key": "amplify-builds/createOrder-346f357951586733732b-build.zip"
+          "s3Key": "amplify-builds/createOrder-79417a31564b45786c6f-build.zip"
         },
         "bikey82d413fePostConfirmation": {
           "GROUP": ""
-        },
-        "AdminQueriesdc0bab4b": {
-          "deploymentBucketName": "amplify-bikey-prod-f846e-deployment",
-          "s3Key": "amplify-builds/AdminQueriesdc0bab4b-4e375651464b68486247-build.zip"
         }
       },
       "storage": {
@@ -38,6 +34,9 @@
       },
       "api": {
         "bikey": {}
+      },
+      "hosting": {
+        "S3AndCloudFront": {}
       }
     }
   }

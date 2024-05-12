@@ -10,21 +10,22 @@
     "@aws-amplify/api": "^6.0.31",
     "@aws-amplify/api-graphql": "^4.1.0",
     "@aws-amplify/auth": "^6.2.2",
+    "@aws-amplify/backend": "1.0.0",
     "@aws-amplify/storage": "^6.4.0",
     "@aws-amplify/ui-react": "^6.1.9",
-    "@aws-amplify/backend": "1.0.0",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.7.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "aws-sdk": "^2.1618.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.8.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^5.0.1",
     "react-stripe-elements": "^6.0.1",
-    "stripe": "^8.68.0",
+    "stripe": "^8.222.0",
     "uuid": "^8.2.0"
   },
   "scripts": {
@@ -48,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

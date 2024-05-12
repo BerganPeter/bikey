@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { BikeContext } from "../context/bikes"; // Changed BookContext to BikeContext
+import { BikeContext } from "../context/bikes"; 
 import { CartContext } from "../context/cart";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
@@ -24,7 +24,7 @@ const CARD_ELEMENT_OPTIONS = {
 
 const CheckoutForm = () => {
   const { cart, total, clearCart } = useContext(CartContext);
-  const { checkout } = useContext(BikeContext); // Changed BookContext to BikeContext
+  const { checkout } = useContext(BikeContext); 
   const [orderDetails, setOrderDetails] = useState({ cart, total, address: null, token: null });
   const [error, setError] = useState(null);
   const stripe = useStripe();
@@ -34,10 +34,10 @@ const CheckoutForm = () => {
   useEffect(() => {
     if (orderDetails.token) {
       checkout(orderDetails);
-      //clearCart();
-      //history.push("/");
+      clearCart();
+      history.push("/");
     }
-  }, [orderDetails]);
+  }, [orderDetails,checkout,clearCart,history]);
 
   // Handle real-time validation errors from the card Element.
   const handleChange = (event) => {
@@ -81,7 +81,7 @@ const CheckoutForm = () => {
           {error}
         </div>
       </div>
-      <button type="submit" className="btn">
+      <button  type="submit" className="btn">
         Submit Payment
       </button>
     </form>

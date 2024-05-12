@@ -2,7 +2,7 @@
   "version": "1",
   "cognitoConfig": {
     "identityPoolName": "bikey82d413fe_identitypool_82d413fe",
-    "allowUnauthenticatedIdentities": true,
+    "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "bikey82d413fe",
     "userPoolName": "bikey82d413fe_userpool_82d413fe",
     "autoVerifiedAttributes": [
@@ -29,14 +29,15 @@
       "email"
     ],
     "userpoolClientReadAttributes": [
-      "email"
+      "email",
+      "email_verified"
     ],
     "userpoolClientLambdaRole": "bikey882d413fe_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": true,
     "sharedId": "82d413fe",
     "resourceName": "bikey82d413fe",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "defaultSocial",
+    "useDefault": "manual",
     "userPoolGroupList": [
       "admin",
       "users"
@@ -58,18 +59,15 @@
     },
     "breakCircularDependency": true,
     "dependsOn": [],
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},
-    "hostedUI": true,
+    "hostedUI": false,
     "parentStack": {
       "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "hostedUIDomainName": "bikeyd52cceb8-d52cceb8",
-    "authProvidersUserPool": [],
-    "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"myapp://\"],\"LogoutURLs\":[\"myapp://\"]}",
-    "authProviders": []
+    "authProviders": [],
+    "thirdPartyAuth": false
   }
 }

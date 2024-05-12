@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
-import { BikeContext } from "../context/bikes"; 
+import React, { useContext  } from "react";
+import { CartContext } from "../context/cart"; 
 import { FiChevronUp } from "react-icons/fi";
 import { FiChevronDown } from "react-icons/fi";
 import { useHistory } from "react-router-dom";
 
+
 const Cart = () => {
   const history = useHistory();
-  const { cart, total, increaseAmount, decreaseAmount } = useContext(BikeContext); 
+  const { cart, total, increaseAmount, decreaseAmount } = useContext(CartContext); 
 
   if (!cart.length) {
     return <h3>Empty Cart</h3>;

@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { Amplify } from 'aws-amplify';
-import { Authenticator} from '@aws-amplify/ui-react';
+import { Authenticator,withAuthenticator,useAuthenticator} from '@aws-amplify/ui-react';
 import config from '../aws-exports'
 import '@aws-amplify/ui-react/styles.css';
-import { withAuthenticator } from '@aws-amplify/ui-react';
 import {uploadData  } from '@aws-amplify/storage';
 import { createBike } from '../api/mutation'
 import { generateClient } from 'aws-amplify/api';
@@ -21,6 +20,9 @@ const {
 } = config
 
 const client = generateClient();
+
+
+  
 
 
 const Admin = () => {
@@ -42,17 +44,19 @@ const Admin = () => {
         }
     }
 
+    const { user, signOut } = useAuthenticator((context) => [context.user]);
+
     const handleImageUpload = async (e) => {
         e.preventDefault();
         const file = e.target.files[0];
         const extension = file.name.split(".")[1];
         const name = file.name.split(".")[0];
         const key = `images/${uuidv4()}${name}.${extension}`;
-        const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
+        const url = `https://${bucket}.s3.${region}.amazonaws.com/${key}`
         try { 
-            await uploadData({path: url, data: file, options: { level: 'guest'
+            await uploadData({path: key, data: file, options: { level: 'guest'
               } }).result;
-            const image = await uploadData({path: url, data: file, options: { level: 'guest'
+            const image = await uploadData({path: key, data: file, options: { level: 'guest'
               } }).result;
             setImage(image);
             setBikeDetails({ ...bikeDetails, image: url }); 
@@ -65,10 +69,12 @@ const Admin = () => {
 
     return (
         <section className="admin-wrapper">
-            <Authenticator signUpAttributes={['email']}>
+            <Authenticator  >
                 <section>
                     <header className="form-header">
-                        <h3>Add New Bike</h3> 
+                        <h2>Welcome, {user.username}!</h2>
+                        <h3>Add New Bike</h3>
+                        <button onClick={signOut}>Sign Out</button>
                     </header>
                     <form className="form-wrapper" onSubmit={handleSubmit}>
                         <div className="form-image">
@@ -111,7 +117,7 @@ const Admin = () => {
                                 /></p>
                             </div>
                             <div className="price-form">
-                                <p><label htmlFor="price">Price ($)</label>
+                                <p><label htmlFor="price">Price (Ft)</label>
                                     <input
                                         name="price"
                                         type="text"

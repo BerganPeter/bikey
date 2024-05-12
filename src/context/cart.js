@@ -14,12 +14,10 @@ const CartProvider = ({ children }) => {
   }, [cart]);
 
   const increaseAmount = (id) => {
-    const updatedCart = [...cart].map((item) => {
-      return item.id === id ? { ...item, amount: item.amount + 1 } : item;
-    });
-    setCart(updatedCart);
+    setCart(currentCart => currentCart.map(item => {
+        return item.id === id ? { ...item, amount: item.amount + 1 } : item;
+    }));
   };
-
   const decreaseAmount = (id, amount) => {
     let updatedCart = [];
     if (amount === 1) {
@@ -33,19 +31,25 @@ const CartProvider = ({ children }) => {
   };
 
   const addToCart = (bike) => {
-    const { id, name, price, image } = bike;
+    //console.log("Attempting to add to cart", bike);
+    const { id , name ,price ,image } = bike;
     const cartItem = [...cart].find((item) => item.id === id);
     if (cartItem) {
       increaseAmount(id);
     } else {
-      const cartItems = [...cart, { id, name, image, price, amount: 1 }];
+      const cartItems = [...cart, { id,name,price,image , amount: 1 }];
       setCart(cartItems);
+      //console.log("New cart items after add", cartItems);
     }
   };
 
   const clearCart = () => {
     setCart([]);
   };
+
+  useEffect(() => {
+    //console.log("Cart updated", cart);
+}, [cart]);
 
   return (
     <CartContext.Provider

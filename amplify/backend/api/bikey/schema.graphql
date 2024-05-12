@@ -56,6 +56,13 @@ type Order
   bikes: [BikeOrder] @connection(keyName: "byOrder", fields: ["id"])
 }
 
+type Mutation {
+  processOrder(input: ProcessOrderInput!): OrderStatus
+    @function(name: "processPayment-${env}")
+    @function(name: "createOrder-${env}")
+}
+
+
 enum OrderStatus {
   SUCCESS
   FAILED
@@ -77,8 +84,4 @@ input ProcessOrderInput {
   address: String
 }
 
-type Mutation {
-  processOrder(input: ProcessOrderInput!): OrderStatus
-    @function(name: "processPayment-${env}")
-    @function(name: "createOrder-${env}")
-}
+

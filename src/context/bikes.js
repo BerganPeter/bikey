@@ -19,15 +19,18 @@ const BikeProvider = ({ children }) => {
   }, []);
 
   const checkout = async (orderDetails) => {
+    console.log("Order details:", orderDetails);
     const payload = {
       id: uuidv4(),
       ...orderDetails
     };
+    console.log("Sending payload:", payload);
     try {
       await client.graphql({query: processOrder,variables: { input: payload }});
       console.log("Order is successful");
+      alert('Order is successful!');
     } catch (err) {
-      console.log(err);
+      console.log("error during chreckout:",err);
     }
   };
 

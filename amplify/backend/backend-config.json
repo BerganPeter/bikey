@@ -77,20 +77,6 @@
     }
   },
   "function": {
-    "AdminQueriesdc0bab4b": {
-      "build": true,
-      "dependsOn": [
-        {
-          "attributes": [
-            "UserPoolId"
-          ],
-          "category": "auth",
-          "resourceName": "bikey82d413fe"
-        }
-      ],
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
     "createOrder": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -102,23 +88,13 @@
       "service": "Lambda"
     }
   },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
   "parameters": {
-    "AMPLIFY_function_AdminQueriesdc0bab4b_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "AdminQueriesdc0bab4b"
-        }
-      ]
-    },
-    "AMPLIFY_function_AdminQueriesdc0bab4b_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "AdminQueriesdc0bab4b"
-        }
-      ]
-    },
     "AMPLIFY_function_bikey82d413fePostConfirmation_GROUP": {
       "usedBy": [
         {
