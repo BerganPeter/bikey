@@ -17,10 +17,7 @@ const getUserEmail = async (event) => {
   return email;
 };
 
-/*
- * Get the total price of the order
- * Charge the customer
- */
+
 exports.handler = async (event) => {
   try {
     const { id, cart, total, address, token } = event.arguments.input;
@@ -29,7 +26,7 @@ exports.handler = async (event) => {
 
     await stripe.charges.create({
       amount: total * 100,
-      currency: "huf",
+      currency: "usd",
       source: token,
       description: `Order ${new Date()} by ${email}`
     });

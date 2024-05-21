@@ -117,7 +117,7 @@ const Admin = () => {
                                 /></p>
                             </div>
                             <div className="price-form">
-                                <p><label htmlFor="price">Price (Ft)</label>
+                                <p><label htmlFor="price">Price (USD)</label>
                                     <input
                                         name="price"
                                         type="text"

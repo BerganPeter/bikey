@@ -28,7 +28,6 @@ const BikeProvider = ({ children }) => {
     try {
       await client.graphql({query: processOrder,variables: { input: payload }});
       console.log("Order is successful");
-      alert('Order is successful!');
     } catch (err) {
       console.log("error during chreckout:",err);
     }
@@ -37,7 +36,6 @@ const BikeProvider = ({ children }) => {
   const fetchBikes = async () => {
     try {
       setLoading(true);
-      // Switch authMode to API_KEY for public access
       const { data } = await client.graphql({
         query: listBikes,
         authMode: "apiKey"

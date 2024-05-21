@@ -30,6 +30,12 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
   const history = useHistory();
+  const [country, setCountry] = useState('');
+  const [city, setCity] = useState('');
+  const [zip, setZip] = useState('');
+  const [address, setAddress] = useState('');
+  
+
 
   useEffect(() => {
     if (orderDetails.token) {
@@ -39,7 +45,6 @@ const CheckoutForm = () => {
     }
   }, [orderDetails,checkout,clearCart,history]);
 
-  // Handle real-time validation errors from the card Element.
   const handleChange = (event) => {
     if (event.error) {
       setError(event.error.message);
@@ -48,31 +53,72 @@ const CheckoutForm = () => {
     }
   };
 
-  // Handle form submission.
+  const handleAddressChange = () => {
+    const fullAddress = `${country}, ${city}, ${zip}, ${address}`;
+    setOrderDetails({ ...orderDetails, address: fullAddress });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const card = elements.getElement(CardElement);
     const result = await stripe.createToken(card);
     if (result.error) {
-      // Inform the user if there was an error.
       setError(result.error.message);
     } else {
       setError(null);
-      // Send the token to your server.
       const token = result.token;
       setOrderDetails({ ...orderDetails, token: token.id });
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="checkout-form">
-        <label htmlFor="checkout-address">Shipping Address</label>
+    <form onSubmit={handleSubmit} className="checkout-form" >
+      <div className="address-container" >
+        <label htmlFor="checkout-country">Country</label>
+        <input
+          id="checkout-country"
+          type="text"
+          value={country}
+          onChange={(e) => {
+            setCountry(e.target.value);
+            handleAddressChange();
+          }}
+        />
+        
+        <label htmlFor="checkout-city">City</label>
+        <input
+          id="checkout-city"
+          type="text"
+          value={city}
+          onChange={(e) => {
+            setCity(e.target.value);
+            handleAddressChange();
+          }}
+        />
+
+        <label htmlFor="checkout-zip">ZIP</label>
+        <input
+          id="checkout-zip"
+          type="text"
+          value={zip}
+          onChange={(e) => {
+            setZip(e.target.value);
+            handleAddressChange();
+          }}
+        />
+      </div>
+      <div className="address-container" >
+        <label htmlFor="checkout-address">Address</label>
         <input
           id="checkout-address"
           type="text"
-          onChange={(e) => setOrderDetails({ ...orderDetails, address: e.target.value })}
+          value={address}
+          onChange={(e) => {
+            setAddress(e.target.value);
+            handleAddressChange();
+          }}
         />
+        </div>
         <div className="stripe-section">
           <label htmlFor="stripe-element"> Credit or debit card </label>
           <CardElement id="stripe-element" options={CARD_ELEMENT_OPTIONS} onChange={handleChange} />
@@ -80,7 +126,6 @@ const CheckoutForm = () => {
         <div className="card-errors" role="alert">
           {error}
         </div>
-      </div>
       <button  type="submit" className="btn">
         Submit Payment
       </button>

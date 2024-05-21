@@ -52,24 +52,17 @@ const createBikeOrder = async (payload) => {
   await documentClient.batchWrite(params).promise();
 };
 
-/*
- * Get order details from processPayment lambda
- * Create an order
- * Link bikes to the order - Users can see the past orders and admins can view orders by user
- * Email the invoice (Will be added later)
- */
+
 exports.handler = async (event) => {
   try {
     let payload = event.prev.result;
     payload.order_id = uuidv4();
 
-    // create a new order
     await createOrder(payload);
 
-    // links bikes with the order
     await createBikeOrder(payload);
 
-    // Note - You may add another function to email the invoice to the user
+ 
 
     return "SUCCESS";
   } catch (err) {

@@ -331,9 +331,63 @@ nav ul {
   flex-direction: column;
   margin: 3rem 0;
 }
+.address-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.address-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.address-container input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.address-line {
+  margin-bottom: 20px;
+}
+
+.address-line label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.address-line input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+
 
 .stripe-section {
   margin-top: 2rem;
+}
+
+.stripe-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.card-errors {
+  color: #fa755a;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
 }
 
 @media screen and (max-width: 933px) {
