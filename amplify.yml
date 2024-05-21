@@ -4,6 +4,7 @@ frontend:
     preBuild:
       commands:
         - npm ci
+        - npx update-browserslist-db@latest
     build:
       commands:
         - npm run build
